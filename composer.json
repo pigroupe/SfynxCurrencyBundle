@@ -1,0 +1,45 @@
+{
+  "name": "sfynx-project/tool-currency-bundle",
+  "type": "symfony-bundle",
+  "description": "This Bundle provides currency handler",
+  "keywords": ["currency", "money", "device", "FixerIo"],
+  "homepage": "http://pigroupe.github.io/cmf-sfynx/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "laurent de-nil",
+      "email": "laurent.de-nil@gmail.fr"
+    },
+    {
+      "name": "Sfynx Community",
+      "homepage": "https://github.com/pigroupe/SfynxCurrencyBundle/contributors"
+    }
+  ],
+
+  "require": {
+    "symfony/framework-bundle": "~2.3|~3.0"
+  },
+
+  "require-dev": {
+    "symfony/phpunit-bridge": "~2.7|~3.0",
+    "phpunit/phpunit": "*"
+  },
+
+  "suggest": {
+  },
+
+  "conflict": {
+  },
+
+  "autoload": {
+    "psr-0": { "Sfynx\\CurrencyBundle": "" }
+  },
+
+  "target-dir": "Sfynx/CurrencyBundle",
+
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.8-dev"
+    }
+  }
+}
