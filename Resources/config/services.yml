@@ -1,0 +1,28 @@
+parameters:
+    sfynx.currency.fixerio.strategy.class: Sfynx\CurrencyBundle\Currency\Strategy\FixerIoCurrencyStrategy
+    sfynx.currency.manager.class: Sfynx\CurrencyBundle\Currency\Manager\CurrencyManager
+
+services:
+    sfynx.currency.guzzle.client:
+        class: GuzzleHttp\Client
+
+    #
+    # fixer.io strategy
+    #
+    sfynx.currency.fixerio.strategy:
+        class: %sfynx.currency.fixerio.strategy.class%
+        properties:
+          baseCurrency: EUR
+        calls:
+          - ["setHttpClient", [@sfynx.currency.guzzle.client]]
+
+    #
+    # add other strategy ...
+    #
+
+    #
+    # currency manager
+    #
+    sfynx.currency.manager:
+        class: %sfynx.currency.manager.class%
+        arguments: [@sfynx.currency.fixerio.strategy]
