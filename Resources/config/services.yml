@@ -25,4 +25,6 @@ services:
     #
     sfynx.currency.manager:
         class: %sfynx.currency.manager.class%
-        arguments: [@sfynx.currency.fixerio.strategy]
+        arguments:
+          - "@sfynx.currency.fixerio.strategy"
+          - "@sfynx.cache.filecache"
