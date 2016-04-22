@@ -1,0 +1,3 @@
+#sfynx_currency:
+#    cache_dir: "%kernel.root_dir%/../Cache/"
+#    cache_ttl: 3600

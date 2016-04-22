@@ -4,6 +4,7 @@ namespace Sfynx\CurrencyBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 
 /**
  * This is the class that validates and merges configuration from your app/config files
@@ -20,10 +21,27 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('sfynx_currency');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $this->addConfig($rootNode);
 
         return $treeBuilder;
+    }
+
+    /**
+     * cache ttl and cache directory where service states are stored
+     * the value must finish with "/"
+     *
+     * @access private
+     * @param ArrayNodeDefinition $node
+     * @return void
+     */
+    private function addConfig(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+            ->scalarNode('cache_dir')->isRequired()
+            ->end()
+            ->scalarNode('cache_ttl')->defaultValue(3600)->isRequired()
+            ->end()
+        ;
     }
 }
