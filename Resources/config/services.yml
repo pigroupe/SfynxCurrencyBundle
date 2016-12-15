@@ -10,11 +10,11 @@ services:
     # fixer.io strategy
     #
     sfynx.currency.fixerio.strategy:
-        class: %sfynx.currency.fixerio.strategy.class%
+        class: '%sfynx.currency.fixerio.strategy.class%'
         properties:
           baseCurrency: EUR
         calls:
-          - ["setHttpClient", [@sfynx.currency.guzzle.client]]
+          - ["setHttpClient", ['@sfynx.currency.guzzle.client']]
 
     #
     # add other strategy ...
@@ -24,7 +24,12 @@ services:
     # currency manager
     #
     sfynx.currency.manager:
+<<<<<<< Updated upstream
         class: %sfynx.currency.manager.class%
         arguments:
           - "@sfynx.currency.fixerio.strategy"
           - "@sfynx.cache.filecache"
+=======
+        class: '%sfynx.currency.manager.class%'
+        arguments: ['@sfynx.currency.fixerio.strategy']
+>>>>>>> Stashed changes
