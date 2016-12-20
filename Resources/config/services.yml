@@ -24,12 +24,7 @@ services:
     # currency manager
     #
     sfynx.currency.manager:
-<<<<<<< Updated upstream
-        class: %sfynx.currency.manager.class%
+        class: '%sfynx.currency.manager.class%'
         arguments:
           - "@sfynx.currency.fixerio.strategy"
           - "@sfynx.cache.filecache"
-=======
-        class: '%sfynx.currency.manager.class%'
-        arguments: ['@sfynx.currency.fixerio.strategy']
->>>>>>> Stashed changes
